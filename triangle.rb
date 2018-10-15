@@ -1,5 +1,5 @@
 # Triangle Project Code.
-
+require 'set'
 # Triangle analyzes the lengths of the sides of a triangle
 # (represented by a, b and c) and returns the type of triangle.
 #
@@ -14,7 +14,11 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  if (a + b <= c or b + c <= a or a + c <= b or a <= 0 or b <= 0 or c<=0)
+    raise TriangleError
+  end
+
+  [:equilateral, :isosceles, :scalene][Set[a, b, c].size - 1]
 end
 
 # Error class used in part 2.  No need to change this code.
